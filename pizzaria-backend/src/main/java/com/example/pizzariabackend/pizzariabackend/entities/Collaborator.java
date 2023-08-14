@@ -1,6 +1,6 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
-import com.example.pizzariabackend.pizzariabackend.settings.Config;
+import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
@@ -12,23 +12,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
+
 @Entity
 @Table(name = "collaborators", schema = "public")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-public class Collaborator extends Config {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    @NotBlank(message = "This field can't be blank.")
-    @NotNull(message = "This field can't be null.")
-    @Max(value = 50, message = "This field supports at maximum of 50 characters.")
-    @Pattern(regexp = nameRegex, message = "This field supports only alphabetic characters.")
+public class Collaborator extends AbstractEntity {
+    @NotBlank(message = ERROR_MESSAGES.NOT_BLANK)
+    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
+    @Max(value = 50, message = ERROR_MESSAGES.MAX_50)
+    @Pattern(regexp = REGULAR_EXPRESSIONS.NAME, message = ERROR_MESSAGES.NAME)
     private String name;
-    @CPF(message = "This field only supports a CPF type.")
-    @NotNull(message = "This field can't be null.")
+    @CPF(message = ERROR_MESSAGES.CPF)
+    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
     private String cpf;
-    @Pattern(regexp = nameRegex, message = "This only supports alphabetic characters.")
+    @Max(value = 50, message = ERROR_MESSAGES.MAX_50)
+    @Pattern(regexp = REGULAR_EXPRESSIONS.SPACE_AND_LETTERS, message = ERROR_MESSAGES.SPACE_AND_LETTERS)
     private String function;
 }

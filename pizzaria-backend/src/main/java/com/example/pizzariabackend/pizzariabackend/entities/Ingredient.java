@@ -1,5 +1,6 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
+import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
@@ -11,18 +12,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_ingredients", schema = "public")
+@Table(name = "ingredients", schema = "public")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
-public class Ingredient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @NotBlank(message = "This field can't be blank.")
-    @NotNull(message = "This field can't be null.")
-    @Max(value = 50, message = "This field supports at maximum of 50 characters.")
-    @Pattern(regexp = "^[a-zA-Z\s]{50}$", message = "This field supports only spaces alphabetic characters.")
+public class Ingredient extends AbstractEntity {
+    @NotBlank(message = ERROR_MESSAGES.NOT_BLANK)
+    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
+    @Max(value = 50, message = ERROR_MESSAGES.MAX_50)
+    @Pattern(regexp = REGULAR_EXPRESSIONS.NAME, message = ERROR_MESSAGES.NAME)
     private String name;
 }
