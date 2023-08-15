@@ -1,6 +1,5 @@
 package com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos;
 
-import com.example.pizzariabackend.pizzariabackend.settings.Config;
 import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -8,7 +7,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 
 @Getter
-public class AbstractIdDTO extends Config {
+public class AbstractIdDTO {
     @NotNull(message = ErrorMessages.NOT_NULL)
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @Positive(message = ErrorMessages.POSITIVE)

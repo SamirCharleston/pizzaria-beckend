@@ -14,16 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional
-@Service
 @MappedSuperclass
-public class AbstractService <
-        Repository extends MainRepository<ObjectEntity>,
+public class AbstractService <Repository extends MainRepository<ObjectEntity>,
         ObjectIdDTO extends AbstractIdDTO,
         ObjectInDTO extends AbstractInDTO,
         ObjectUpdateDTO extends AbstractUpdateDTO,
         ObjectOutDTO extends AbstractOutDTO,
-        ObjectEntity extends  AbstractEntity
-        > {
+        ObjectEntity extends  AbstractEntity> {
     @Autowired
     private Repository repository;
     public ObjectOutDTO findById(ObjectIdDTO object) throws EntityNotFoundException {

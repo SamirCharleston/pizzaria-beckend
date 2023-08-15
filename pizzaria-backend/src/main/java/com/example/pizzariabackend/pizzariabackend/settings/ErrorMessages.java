@@ -1,6 +1,6 @@
 package com.example.pizzariabackend.pizzariabackend.settings;
 
-public class ErrorMessages {
+public abstract class ErrorMessages {
     public static final String SPACE_AND_LETTERS = "This field must contain only spaces and alphabetic characters.";
     public static final String ONLY_NUMBERS = "This field must contain only numbers.";
     public static final String ONLY_LETTERS = "This field must contain only alphabetic characters.";

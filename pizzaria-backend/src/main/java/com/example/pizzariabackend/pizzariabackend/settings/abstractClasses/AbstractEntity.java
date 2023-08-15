@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 @Getter
 @MappedSuperclass
-public class AbstractEntity extends Config {
+public class AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
