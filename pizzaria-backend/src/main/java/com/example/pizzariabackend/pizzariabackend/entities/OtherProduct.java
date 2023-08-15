@@ -3,6 +3,7 @@ package com.example.pizzariabackend.pizzariabackend.entities;
 import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.settings.RegularExpressions;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.*;
@@ -18,13 +19,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Getter @Setter
 public class OtherProduct extends AbstractEntity {
-    @Pattern(regexp = RegularExpressions.NAME, message = ErrorMessages.NAME)
+    @Column(unique = true, nullable = false, length = 50)
     private String name;
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @Positive(message = ErrorMessages.POSITIVE)
+    @Column(nullable = false)
     private BigDecimal price;
-    @Max(value = 20, message = ErrorMessages.MAX_20)
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @NotBlank(message = ErrorMessages.NOT_BLANK)
+    @Column(nullable = false, length = 20)
     private String kind;
 }

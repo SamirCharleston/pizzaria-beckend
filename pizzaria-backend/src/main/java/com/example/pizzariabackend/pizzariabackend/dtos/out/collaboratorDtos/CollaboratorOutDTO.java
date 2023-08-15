@@ -1,4 +1,4 @@
-package com.example.pizzariabackend.pizzariabackend.dtos.request.collaboratorDtos;
+package com.example.pizzariabackend.pizzariabackend.dtos.out.collaboratorDtos;
 
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractOutDTO;
 

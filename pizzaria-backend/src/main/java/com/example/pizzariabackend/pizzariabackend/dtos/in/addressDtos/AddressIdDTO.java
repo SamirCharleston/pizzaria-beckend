@@ -1,4 +1,4 @@
-package com.example.pizzariabackend.pizzariabackend.dtos.request.AddressDtos;
+package com.example.pizzariabackend.pizzariabackend.dtos.in.addressDtos;
 
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractIdDTO;
 

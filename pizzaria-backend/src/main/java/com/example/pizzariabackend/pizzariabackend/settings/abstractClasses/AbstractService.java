@@ -16,18 +16,21 @@ import java.util.List;
 @Transactional
 @Service
 @MappedSuperclass
-public class AbstractService <Repository extends MainRepository<ObjectEntity>,
+public class AbstractService <
+        Repository extends MainRepository<ObjectEntity>,
         ObjectIdDTO extends AbstractIdDTO,
         ObjectInDTO extends AbstractInDTO,
         ObjectUpdateDTO extends AbstractUpdateDTO,
         ObjectOutDTO extends AbstractOutDTO,
-        ObjectEntity extends  AbstractEntity> {
+        ObjectEntity extends  AbstractEntity
+        > {
     @Autowired
     private Repository repository;
-    public Object findById(ObjectIdDTO object) throws EntityNotFoundException {
-        return repository.findById(object.getId()).orElseThrow(() -> {
+    public ObjectOutDTO findById(ObjectIdDTO object) throws EntityNotFoundException {
+        ObjectEntity dataBaseEntity =  repository.findById(object.getId()).orElseThrow(() -> {
             throw new EntityNotFoundException("Can't found the id " + object.getId() + ".");
         });
+        return (ObjectOutDTO) dataBaseEntity;
     }
     public List<ObjectEntity> findAll() throws EntityNotFoundException{
         List<ObjectEntity> objects = repository.findAll();

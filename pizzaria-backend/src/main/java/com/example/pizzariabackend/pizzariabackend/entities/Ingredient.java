@@ -19,9 +19,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter @Setter
 public class Ingredient extends AbstractEntity {
-    @NotBlank(message = ErrorMessages.NOT_BLANK)
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @Max(value = 50, message = ErrorMessages.MAX_50)
-    @Pattern(regexp = RegularExpressions.NAME, message = ErrorMessages.NAME)
+    @Column(unique = true, nullable = false, length = 50)
     private String name;
 }

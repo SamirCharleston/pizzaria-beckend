@@ -18,16 +18,15 @@ import java.util.List;
 @Getter @Setter
 public class Order extends AbstractEntity {
     @ManyToMany
-    @NotNull(message = ErrorMessages.NOT_NULL)
+    @JoinTable
     private List<Collaborator> collaborators;
     @OneToMany
     private List<OtherProduct> otherProducts;
     @ManyToOne
-    @NotNull(message = ErrorMessages.NOT_NULL)
+    @JoinColumn(nullable = false)
     private Customer customer;
     @ManyToMany
     @JoinTable
-    @NotNull(message = ErrorMessages.NOT_NULL)
     private List<Pizza> pizzas;
     private boolean delivered;
 }

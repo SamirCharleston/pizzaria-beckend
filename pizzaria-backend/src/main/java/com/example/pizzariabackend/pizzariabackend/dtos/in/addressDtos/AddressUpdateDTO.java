@@ -1,14 +1,14 @@
-package com.example.pizzariabackend.pizzariabackend.dtos.request.AddressDtos;
+package com.example.pizzariabackend.pizzariabackend.dtos.in.addressDtos;
 
 import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.settings.RegularExpressions;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractInDTO;
+import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public class AddressInDTO extends AbstractInDTO {
+public class AddressUpdateDTO extends AbstractUpdateDTO {
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Max(value = 50, message = ErrorMessages.MAX_50)

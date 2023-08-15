@@ -19,13 +19,11 @@ import java.util.List;
 @AllArgsConstructor
 @Getter @Setter
 public class Pizza extends AbstractEntity {
-    @Positive(message = ErrorMessages.POSITIVE)
     private int quantity;
-    @NotNull(message = ErrorMessages.NOT_NULL)
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 2)
     private Size size;
     @OneToMany
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @NotEmpty(message = ErrorMessages.NOT_EMPTY)
+    @JoinColumn(nullable = false)
     private List<Flavor> flavors;
 }

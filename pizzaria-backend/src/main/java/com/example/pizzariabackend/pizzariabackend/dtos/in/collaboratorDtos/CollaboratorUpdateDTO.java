@@ -1,4 +1,4 @@
-package com.example.pizzariabackend.pizzariabackend.dtos.request.collaboratorDtos;
+package com.example.pizzariabackend.pizzariabackend.dtos.in.collaboratorDtos;
 
 import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.settings.RegularExpressions;
