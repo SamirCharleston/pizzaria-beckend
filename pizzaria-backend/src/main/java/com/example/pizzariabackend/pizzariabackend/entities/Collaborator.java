@@ -21,15 +21,10 @@ import org.hibernate.validator.constraints.br.CPF;
 @AllArgsConstructor
 @Getter @Setter
 public class Collaborator extends AbstractEntity {
-    @NotBlank(message = ErrorMessages.NOT_BLANK)
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @Max(value = 50, message = ErrorMessages.MAX_50)
-    @Pattern(regexp = RegularExpressions.NAME, message = ErrorMessages.NAME)
+    @Column(nullable = false, length = 50)
     private String name;
-    @CPF(message = ErrorMessages.CPF)
-    @NotNull(message = ErrorMessages.NOT_NULL)
+    @Column(unique = true, nullable = false, length = 15)
     private String cpf;
-    @Max(value = 50, message = ErrorMessages.MAX_50)
-    @Pattern(regexp = RegularExpressions.SPACE_AND_LETTERS, message = ErrorMessages.SPACE_AND_LETTERS)
+    @Column(length = 50, nullable = false)
     private String function;
 }

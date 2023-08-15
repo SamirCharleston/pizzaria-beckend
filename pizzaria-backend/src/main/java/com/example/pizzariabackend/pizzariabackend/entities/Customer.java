@@ -18,5 +18,6 @@ public class Customer extends AbstractEntity {
     @Column(unique = true, nullable = false, length = 15)
     private String telephoneNumber;
     @OneToOne
+    @Column(nullable = false)
     private Address address;
 }

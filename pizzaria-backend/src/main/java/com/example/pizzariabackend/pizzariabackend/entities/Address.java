@@ -19,17 +19,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter @Setter
 public class Address extends AbstractEntity {
-    @Max(value = 50, message = ErrorMessages.MAX_50)
-    @Pattern(regexp = RegularExpressions.SPACE_AND_LETTERS, message = ErrorMessages.SPACE_AND_LETTERS)
+    @Column(nullable = false, length = 50)
     private String street;
-    @Max(value = 10, message = ErrorMessages.MAX_10)
-    @NotBlank(message = ErrorMessages.NOT_BLANK)
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @Pattern(regexp = RegularExpressions.ONLY_NUMBERS, message = ErrorMessages.ONLY_NUMBERS)
+    @Column(nullable = false, length = 10)
     private String number;
-    @Max(value = 50, message = ErrorMessages.MAX_50)
-    @NotBlank(message = ErrorMessages.NOT_BLANK)
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @Pattern(regexp = RegularExpressions.SPACE_AND_LETTERS, message = ErrorMessages.SPACE_AND_LETTERS)
+    @Column(nullable = false, length = 50)
     private String neighborhood;
 }
