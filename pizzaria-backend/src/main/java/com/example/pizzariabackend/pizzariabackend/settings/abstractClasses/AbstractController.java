@@ -8,13 +8,13 @@ import jakarta.persistence.MappedSuperclass;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @MappedSuperclass
-public class AbstractController<Service extends AbstractService,
+public class AbstractController<
+        Service extends AbstractService,
         ObjectIdDTO extends AbstractIdDTO,
         ObjectInDTO extends AbstractInDTO,
         ObjectUpdateDTO extends AbstractUpdateDTO,

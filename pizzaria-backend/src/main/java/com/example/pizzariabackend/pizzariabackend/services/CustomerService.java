@@ -7,9 +7,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.out.customerDtos.Custome
 import com.example.pizzariabackend.pizzariabackend.entities.Customer;
 import com.example.pizzariabackend.pizzariabackend.repositories.CustomerRepository;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
-import org.springframework.stereotype.Service;
 
-@Service
 public class CustomerService extends AbstractService<
         CustomerRepository,
         CustomerIdDTO,

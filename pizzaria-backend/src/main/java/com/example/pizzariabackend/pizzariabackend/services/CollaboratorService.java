@@ -7,9 +7,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.out.collaboratorDtos.Col
 import com.example.pizzariabackend.pizzariabackend.entities.Collaborator;
 import com.example.pizzariabackend.pizzariabackend.repositories.CollaboratorRepository;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
-import org.springframework.stereotype.Service;
 
-@Service
 public class CollaboratorService extends AbstractService<
         CollaboratorRepository,
         CollaboratorIdDTO,

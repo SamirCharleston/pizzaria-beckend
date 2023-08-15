@@ -7,10 +7,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.out.addressDtos.AddressO
 import com.example.pizzariabackend.pizzariabackend.entities.Address;
 import com.example.pizzariabackend.pizzariabackend.repositories.AddressRepository;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.MainRepository;
-import org.springframework.stereotype.Service;
 
-@Service
 public class AddressService extends AbstractService<
         AddressRepository,
         AddressIdDTO,

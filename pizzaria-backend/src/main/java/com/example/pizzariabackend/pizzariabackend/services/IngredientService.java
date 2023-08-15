@@ -7,9 +7,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.out.ingredientDtos.Ingre
 import com.example.pizzariabackend.pizzariabackend.entities.Ingredient;
 import com.example.pizzariabackend.pizzariabackend.repositories.IngredientRepository;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
-import org.springframework.stereotype.Service;
 
-@Service
 public class IngredientService extends AbstractService<
         IngredientRepository,
         IngredientIdDTO,

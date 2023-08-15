@@ -12,10 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@Service
 @Transactional
-@MappedSuperclass
-public class AbstractService <Repository extends MainRepository<ObjectEntity>,
+//@MappedSuperclass
+public class AbstractService <
+        Repository extends MainRepository<ObjectEntity>,
         ObjectIdDTO extends AbstractIdDTO,
         ObjectInDTO extends AbstractInDTO,
         ObjectUpdateDTO extends AbstractUpdateDTO,
