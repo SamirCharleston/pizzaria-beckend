@@ -1,11 +1,10 @@
 package com.example.pizzariabackend.pizzariabackend.settings.abstractClasses;
 
 import com.example.pizzariabackend.pizzariabackend.settings.Config;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 @Getter
+@MappedSuperclass
 public class AbstractEntity extends Config {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

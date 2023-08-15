@@ -1,5 +1,7 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
+import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
+import com.example.pizzariabackend.pizzariabackend.settings.RegularExpressions;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
@@ -19,15 +21,15 @@ import org.hibernate.validator.constraints.br.CPF;
 @AllArgsConstructor
 @Getter @Setter
 public class Collaborator extends AbstractEntity {
-    @NotBlank(message = ERROR_MESSAGES.NOT_BLANK)
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
-    @Max(value = 50, message = ERROR_MESSAGES.MAX_50)
-    @Pattern(regexp = REGULAR_EXPRESSIONS.NAME, message = ERROR_MESSAGES.NAME)
+    @NotBlank(message = ErrorMessages.NOT_BLANK)
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    @Max(value = 50, message = ErrorMessages.MAX_50)
+    @Pattern(regexp = RegularExpressions.NAME, message = ErrorMessages.NAME)
     private String name;
-    @CPF(message = ERROR_MESSAGES.CPF)
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
+    @CPF(message = ErrorMessages.CPF)
+    @NotNull(message = ErrorMessages.NOT_NULL)
     private String cpf;
-    @Max(value = 50, message = ERROR_MESSAGES.MAX_50)
-    @Pattern(regexp = REGULAR_EXPRESSIONS.SPACE_AND_LETTERS, message = ERROR_MESSAGES.SPACE_AND_LETTERS)
+    @Max(value = 50, message = ErrorMessages.MAX_50)
+    @Pattern(regexp = RegularExpressions.SPACE_AND_LETTERS, message = ErrorMessages.SPACE_AND_LETTERS)
     private String function;
 }

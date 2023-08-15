@@ -1,5 +1,6 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
+import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -18,13 +19,13 @@ import java.util.List;
 @AllArgsConstructor
 @Getter @Setter
 public class Pizza extends AbstractEntity {
-    @Positive(message = ERROR_MESSAGES.POSITIVE)
+    @Positive(message = ErrorMessages.POSITIVE)
     private int quantity;
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
+    @NotNull(message = ErrorMessages.NOT_NULL)
     @Enumerated(EnumType.STRING)
     private Size size;
     @OneToMany
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
-    @NotEmpty(message = ERROR_MESSAGES.NOT_EMPTY)
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    @NotEmpty(message = ErrorMessages.NOT_EMPTY)
     private List<Flavor> flavors;
 }

@@ -13,9 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter @Setter
 public class Customer extends AbstractEntity {
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String name;
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 15)
     private String telephoneNumber;
     @OneToOne
     private Address address;

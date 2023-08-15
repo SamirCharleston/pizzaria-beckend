@@ -1,5 +1,7 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
+import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
+import com.example.pizzariabackend.pizzariabackend.settings.RegularExpressions;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -18,13 +20,13 @@ import java.util.List;
 @AllArgsConstructor
 @Getter @Setter
 public class Flavor extends AbstractEntity {
-    @NotBlank(message = ERROR_MESSAGES.NOT_BLANK)
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
-    @Max(value = 50, message = ERROR_MESSAGES.MAX_50)
-    @Pattern(regexp = REGULAR_EXPRESSIONS.NAME, message = ERROR_MESSAGES.NAME)
+    @NotBlank(message = ErrorMessages.NOT_BLANK)
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    @Max(value = 50, message = ErrorMessages.MAX_50)
+    @Pattern(regexp = RegularExpressions.NAME, message = ErrorMessages.NAME)
     private String name;
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
-    @NotEmpty(message = ERROR_MESSAGES.NOT_EMPTY)
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    @NotEmpty(message = ErrorMessages.NOT_EMPTY)
     @OneToMany
     private List<Ingredient> ingredients;
 }

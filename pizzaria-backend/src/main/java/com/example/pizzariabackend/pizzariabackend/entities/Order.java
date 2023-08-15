@@ -1,5 +1,6 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
+import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -17,16 +18,16 @@ import java.util.List;
 @Getter @Setter
 public class Order extends AbstractEntity {
     @ManyToMany
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
+    @NotNull(message = ErrorMessages.NOT_NULL)
     private List<Collaborator> collaborators;
     @OneToMany
     private List<OtherProduct> otherProducts;
     @ManyToOne
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
+    @NotNull(message = ErrorMessages.NOT_NULL)
     private Customer customer;
     @ManyToMany
     @JoinTable
-    @NotNull(message = ERROR_MESSAGES.NOT_NULL)
+    @NotNull(message = ErrorMessages.NOT_NULL)
     private List<Pizza> pizzas;
     private boolean delivered;
 }

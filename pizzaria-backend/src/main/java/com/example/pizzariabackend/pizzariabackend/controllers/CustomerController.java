@@ -7,9 +7,10 @@ import com.example.pizzariabackend.pizzariabackend.dtos.request.customerDtos.Cus
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractController;
 import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
 
-public class CustomerController extends AbstractController<AbstractService,
-        CustomerIdDTO,
-        CustomerInDTO,
-        CustomerUpdateDTO,
-        CustomerOutDTO> {
+public class CustomerController //extends AbstractController<AbstractService,
+//        CustomerIdDTO,
+//        CustomerInDTO,
+//        CustomerUpdateDTO,
+//        CustomerOutDTO>
+{
 }
