@@ -1,4 +1,4 @@
-package com.example.pizzariabackend.pizzariabackend.config;
+package com.example.pizzariabackend.pizzariabackend.config.modelMapper;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
