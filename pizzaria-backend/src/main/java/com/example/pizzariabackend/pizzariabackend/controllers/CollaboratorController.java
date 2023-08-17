@@ -4,8 +4,8 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.collaboratorDtos.Coll
 import com.example.pizzariabackend.pizzariabackend.dtos.in.collaboratorDtos.CollaboratorInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.collaboratorDtos.CollaboratorUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.collaboratorDtos.CollaboratorOutDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractController;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractController;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
 
 public class CollaboratorController extends AbstractController<AbstractService,
         CollaboratorIdDTO,

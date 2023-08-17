@@ -1,9 +1,9 @@
 package com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos;
 
 import com.example.pizzariabackend.pizzariabackend.entities.Address;
-import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
-import com.example.pizzariabackend.pizzariabackend.settings.RegularExpressions;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractUpdateDTO;
+import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorMessages;
+import com.example.pizzariabackend.pizzariabackend.config.validation.RegexValidation;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -12,11 +12,11 @@ import jakarta.validation.constraints.Pattern;
 public class CustomerUpdateDTO extends AbstractUpdateDTO {
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
-    @Pattern(regexp = RegularExpressions.NAME, message = ErrorMessages.NAME)
+    @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)
     private String name;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
-    @Pattern(regexp = RegularExpressions.TELEPHONE, message = ErrorMessages.TELEPHONE)
+    @Pattern(regexp = RegexValidation.TELEPHONE, message = ErrorMessages.TELEPHONE)
     private String telephoneNumber;
     @OneToOne
     @NotNull(message = ErrorMessages.NOT_NULL)

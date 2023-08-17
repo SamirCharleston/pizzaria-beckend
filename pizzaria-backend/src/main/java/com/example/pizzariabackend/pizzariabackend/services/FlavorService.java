@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.flavorDtos.FlavorUpda
 import com.example.pizzariabackend.pizzariabackend.dtos.out.flavorDtos.FlavorOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Flavor;
 import com.example.pizzariabackend.pizzariabackend.repositories.FlavorRepository;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
 
 public class FlavorService extends AbstractService<
         FlavorRepository,

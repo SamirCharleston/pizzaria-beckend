@@ -4,8 +4,8 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos.Customer
 import com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos.CustomerInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos.CustomerUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.customerDtos.CustomerOutDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractController;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractController;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
 
 public class CustomerController extends AbstractController<AbstractService,
         CustomerIdDTO,

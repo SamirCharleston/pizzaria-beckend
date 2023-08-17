@@ -1,11 +1,11 @@
-package com.example.pizzariabackend.pizzariabackend.settings.abstractClasses;
+package com.example.pizzariabackend.pizzariabackend.config.abstractClasses;
 
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractIdDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractInDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractOutDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractUpdateDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractIdDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractInDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractOutDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.persistence.MappedSuperclass;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -24,6 +24,8 @@ public class AbstractService <
         ObjectEntity extends  AbstractEntity> {
     @Autowired
     private Repository repository;
+    @Autowired
+    private ModelMapper modelMapper;
     public ObjectOutDTO findById(ObjectIdDTO object) throws EntityNotFoundException {
         ObjectEntity dataBaseEntity =  repository.findById(object.getId()).orElseThrow(() -> {
             throw new EntityNotFoundException("Can't found the id " + object.getId() + ".");

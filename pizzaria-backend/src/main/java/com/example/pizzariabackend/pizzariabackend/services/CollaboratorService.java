@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.collaboratorDtos.Coll
 import com.example.pizzariabackend.pizzariabackend.dtos.out.collaboratorDtos.CollaboratorOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Collaborator;
 import com.example.pizzariabackend.pizzariabackend.repositories.CollaboratorRepository;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
 
 public class CollaboratorService extends AbstractService<
         CollaboratorRepository,

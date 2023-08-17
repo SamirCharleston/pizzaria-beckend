@@ -1,6 +1,5 @@
-package com.example.pizzariabackend.pizzariabackend.settings.abstractClasses;
+package com.example.pizzariabackend.pizzariabackend.config.abstractClasses;
 
-import com.example.pizzariabackend.pizzariabackend.settings.Config;
 import jakarta.persistence.*;
 import lombok.Getter;
 @Getter

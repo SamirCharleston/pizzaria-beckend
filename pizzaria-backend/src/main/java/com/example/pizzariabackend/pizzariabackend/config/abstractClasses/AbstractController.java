@@ -1,9 +1,9 @@
-package com.example.pizzariabackend.pizzariabackend.settings.abstractClasses;
+package com.example.pizzariabackend.pizzariabackend.config.abstractClasses;
 
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractIdDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractInDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractOutDTO;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.abstractDtos.AbstractUpdateDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractIdDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractInDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractOutDTO;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.persistence.MappedSuperclass;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.ResponseEntity;

@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos.Customer
 import com.example.pizzariabackend.pizzariabackend.dtos.out.customerDtos.CustomerOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Customer;
 import com.example.pizzariabackend.pizzariabackend.repositories.CustomerRepository;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
 
 public class CustomerService extends AbstractService<
         CustomerRepository,

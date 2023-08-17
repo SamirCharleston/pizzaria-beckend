@@ -1,4 +1,4 @@
-package com.example.pizzariabackend.pizzariabackend.settings.abstractClasses;
+package com.example.pizzariabackend.pizzariabackend.config.abstractClasses;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.JpaRepository;

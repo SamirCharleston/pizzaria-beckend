@@ -1,4 +1,4 @@
-package com.example.pizzariabackend.pizzariabackend.settings;
+package com.example.pizzariabackend.pizzariabackend.config.messageHandling;
 
 public abstract class ErrorMessages {
     public static final String SPACE_AND_LETTERS = "This field must contain only spaces and alphabetic characters.";

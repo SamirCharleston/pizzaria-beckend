@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.addressDtos.AddressUp
 import com.example.pizzariabackend.pizzariabackend.dtos.out.addressDtos.AddressOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Address;
 import com.example.pizzariabackend.pizzariabackend.repositories.AddressRepository;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
 
 public class AddressService extends AbstractService<
         AddressRepository,

@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.ingredientDtos.Ingred
 import com.example.pizzariabackend.pizzariabackend.dtos.out.ingredientDtos.IngredientOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Ingredient;
 import com.example.pizzariabackend.pizzariabackend.repositories.IngredientRepository;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
 
 public class IngredientService extends AbstractService<
         IngredientRepository,

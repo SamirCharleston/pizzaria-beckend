@@ -1,8 +1,7 @@
 package com.example.pizzariabackend.pizzariabackend.repositories;
 
 import com.example.pizzariabackend.pizzariabackend.entities.Address;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.MainRepository;
-import org.springframework.stereotype.Repository;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.MainRepository;
 
 public interface AddressRepository extends MainRepository<Address> {
 }

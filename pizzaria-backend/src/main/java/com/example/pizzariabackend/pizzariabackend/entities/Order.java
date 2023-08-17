@@ -1,9 +1,7 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
-import com.example.pizzariabackend.pizzariabackend.settings.ErrorMessages;
-import com.example.pizzariabackend.pizzariabackend.settings.abstractClasses.AbstractEntity;
+import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractEntity;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
