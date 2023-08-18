@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.pizzaDtos.PizzaUpdate
 import com.example.pizzariabackend.pizzariabackend.dtos.out.pizzaDtos.PizzaOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Pizza;
 import com.example.pizzariabackend.pizzariabackend.repositories.PizzaRepository;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
 
 public class PizzaService extends AbstractService<
         PizzaRepository,
@@ -15,4 +15,13 @@ public class PizzaService extends AbstractService<
         PizzaUpdateDTO,
         PizzaOutDTO,
         Pizza>{
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectDTO convertToDTO(ObjectEntity objectEntity) {
+        return null;
+    }
+
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectEntity convertToEntity(ObjectDTO objectDTO) {
+        return null;
+    }
 }

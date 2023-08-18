@@ -1,6 +1,6 @@
 package com.example.pizzariabackend.pizzariabackend.entities;
 
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractEntity;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

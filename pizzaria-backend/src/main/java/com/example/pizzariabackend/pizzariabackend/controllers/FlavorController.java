@@ -4,8 +4,8 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.flavorDtos.FlavorIdDT
 import com.example.pizzariabackend.pizzariabackend.dtos.in.flavorDtos.FlavorInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.flavorDtos.FlavorUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.flavorDtos.FlavorOutDTO;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractController;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractController;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
 
 public class FlavorController extends AbstractController<AbstractService,
         FlavorIdDTO,

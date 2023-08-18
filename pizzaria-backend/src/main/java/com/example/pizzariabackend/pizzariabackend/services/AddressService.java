@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.addressDtos.AddressUp
 import com.example.pizzariabackend.pizzariabackend.dtos.out.addressDtos.AddressOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Address;
 import com.example.pizzariabackend.pizzariabackend.repositories.AddressRepository;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
 
 public class AddressService extends AbstractService<
         AddressRepository,
@@ -15,4 +15,13 @@ public class AddressService extends AbstractService<
         AddressUpdateDTO,
         AddressOutDTO,
         Address>{
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectDTO convertToDTO(ObjectEntity objectEntity) {
+        return null;
+    }
+
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectEntity convertToEntity(ObjectDTO objectDTO) {
+        return null;
+    }
 }

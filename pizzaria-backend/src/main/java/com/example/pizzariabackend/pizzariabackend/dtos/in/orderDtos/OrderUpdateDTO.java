@@ -5,7 +5,7 @@ import com.example.pizzariabackend.pizzariabackend.entities.Customer;
 import com.example.pizzariabackend.pizzariabackend.entities.OtherProduct;
 import com.example.pizzariabackend.pizzariabackend.entities.Pizza;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorMessages;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractUpdateDTO;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.List;

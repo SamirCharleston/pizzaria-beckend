@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.flavorDtos.FlavorUpda
 import com.example.pizzariabackend.pizzariabackend.dtos.out.flavorDtos.FlavorOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Flavor;
 import com.example.pizzariabackend.pizzariabackend.repositories.FlavorRepository;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
 
 public class FlavorService extends AbstractService<
         FlavorRepository,
@@ -15,4 +15,13 @@ public class FlavorService extends AbstractService<
         FlavorUpdateDTO,
         FlavorOutDTO,
         Flavor> {
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectDTO convertToDTO(ObjectEntity objectEntity) {
+        return null;
+    }
+
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectEntity convertToEntity(ObjectDTO objectDTO) {
+        return null;
+    }
 }

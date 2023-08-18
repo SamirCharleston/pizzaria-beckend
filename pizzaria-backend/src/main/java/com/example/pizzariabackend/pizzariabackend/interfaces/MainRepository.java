@@ -1,5 +1,6 @@
-package com.example.pizzariabackend.pizzariabackend.config.abstractClasses;
+package com.example.pizzariabackend.pizzariabackend.interfaces;
 
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractEntity;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

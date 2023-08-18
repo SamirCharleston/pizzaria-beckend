@@ -6,7 +6,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.ingredientDtos.Ingred
 import com.example.pizzariabackend.pizzariabackend.dtos.out.ingredientDtos.IngredientOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.Ingredient;
 import com.example.pizzariabackend.pizzariabackend.repositories.IngredientRepository;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
 
 public class IngredientService extends AbstractService<
         IngredientRepository,
@@ -15,4 +15,13 @@ public class IngredientService extends AbstractService<
         IngredientUpdateDTO,
         IngredientOutDTO,
         Ingredient>{
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectDTO convertToDTO(ObjectEntity objectEntity) {
+        return null;
+    }
+
+    @Override
+    public <ObjectDTO, ObjectEntity> ObjectEntity convertToEntity(ObjectDTO objectDTO) {
+        return null;
+    }
 }

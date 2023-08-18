@@ -1,9 +1,9 @@
-package com.example.pizzariabackend.pizzariabackend.config.abstractClasses;
+package com.example.pizzariabackend.pizzariabackend.abstractClasses;
 
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractIdDTO;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractInDTO;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractOutDTO;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractUpdateDTO;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractIdDTO;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractInDTO;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractOutDTO;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.persistence.MappedSuperclass;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @MappedSuperclass
-public class AbstractController<
+public abstract class AbstractController<
         Service extends AbstractService,
         ObjectIdDTO extends AbstractIdDTO,
         ObjectInDTO extends AbstractInDTO,

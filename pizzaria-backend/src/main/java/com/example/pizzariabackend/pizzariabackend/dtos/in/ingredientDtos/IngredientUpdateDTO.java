@@ -2,7 +2,7 @@ package com.example.pizzariabackend.pizzariabackend.dtos.in.ingredientDtos;
 
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.config.validation.RegexValidation;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractUpdateDTO;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.validation.constraints.*;
 
 public class IngredientUpdateDTO extends AbstractUpdateDTO {

@@ -3,7 +3,7 @@ package com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos;
 import com.example.pizzariabackend.pizzariabackend.entities.Address;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.config.validation.RegexValidation;
-import com.example.pizzariabackend.pizzariabackend.config.abstractClasses.abstractDtos.AbstractUpdateDTO;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
