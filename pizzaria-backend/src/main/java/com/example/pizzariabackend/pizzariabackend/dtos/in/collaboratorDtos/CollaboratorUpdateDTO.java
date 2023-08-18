@@ -10,6 +10,8 @@ import org.hibernate.validator.constraints.br.CPF;
 @Getter
 @Setter
 public class CollaboratorUpdateDTO {
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Size(max = 50, message = ErrorMessages.MAX_50)

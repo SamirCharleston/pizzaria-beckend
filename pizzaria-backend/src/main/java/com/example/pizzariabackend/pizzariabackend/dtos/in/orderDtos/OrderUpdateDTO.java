@@ -15,6 +15,8 @@ import java.util.List;
 @Setter
 public class OrderUpdateDTO {
     @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
+    @NotNull(message = ErrorMessages.NOT_NULL)
     private List<Collaborator> collaborators;
     private List<OtherProduct> otherProducts;
     @NotNull(message = ErrorMessages.NOT_NULL)

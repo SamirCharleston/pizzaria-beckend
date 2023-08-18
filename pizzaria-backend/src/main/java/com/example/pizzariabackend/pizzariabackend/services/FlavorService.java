@@ -5,6 +5,7 @@ import com.example.pizzariabackend.pizzariabackend.config.messageHandling.Succes
 import com.example.pizzariabackend.pizzariabackend.dtos.in.flavorDtos.FlavorInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.flavorDtos.FlavorUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.flavorDtos.FlavorOutDTO;
+import com.example.pizzariabackend.pizzariabackend.entities.Collaborator;
 import com.example.pizzariabackend.pizzariabackend.entities.Flavor;
 import com.example.pizzariabackend.pizzariabackend.repositories.FlavorRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -43,7 +44,15 @@ public class FlavorService{
         return SuccessMessages.SAVED;
     }
     public String update(FlavorUpdateDTO request){
-        Flavor flavorToDatabase = modelMapper.map(request, Flavor.class);
+        if(!repository.existsById(request.getId()))
+            throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+        Flavor flavorToDatabase = repository.getById(request.getId());
+        //Put the variation below this line
+        if(request.getIngredients() != null && !request.getIngredients().isEmpty())
+            flavorToDatabase.setIngredients(request.getIngredients());
+        if(request.getName() != null && !request.getName().isEmpty())
+            flavorToDatabase.setName(request.getName());
+        //Put the variation above this line
         repository.save(flavorToDatabase);
         return SuccessMessages.UPDATED;
     }

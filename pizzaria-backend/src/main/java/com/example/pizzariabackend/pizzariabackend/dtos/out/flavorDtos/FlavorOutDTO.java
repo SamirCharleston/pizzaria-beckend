@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class FlavorOutDTO extends AbstractOutDTO {
+public class FlavorOutDTO{
     private String name;
     private List<Ingredient> ingredients;
 }

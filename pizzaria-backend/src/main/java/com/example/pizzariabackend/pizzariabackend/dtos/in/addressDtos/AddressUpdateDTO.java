@@ -10,10 +10,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AddressUpdateDTO {
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Size(max = 50, message = ErrorMessages.MAX_50)
-    @Pattern(regexp = RegexValidation.SPACE_AND_LETTERS, message = ErrorMessages.SPACE_AND_LETTERS)
+    @Pattern(regexp = RegexValidation.LETTERS_SPACES_NUMBERS, message = ErrorMessages.SPACE_AND_LETTERS)
     private String street;
     @Size(max = 10, message = ErrorMessages.MAX_10)
     @NotBlank(message = ErrorMessages.NOT_BLANK)
@@ -23,6 +25,6 @@ public class AddressUpdateDTO {
     @Size(max = 50, message = ErrorMessages.MAX_50)
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
-    @Pattern(regexp = RegexValidation.SPACE_AND_LETTERS, message = ErrorMessages.SPACE_AND_LETTERS)
+    @Pattern(regexp = RegexValidation.LETTERS_SPACES_NUMBERS, message = ErrorMessages.SPACE_AND_LETTERS)
     private String neighborhood;
 }

@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomerOutDTO extends AbstractOutDTO {
+public class CustomerOutDTO{
     private String name;
     private String telephoneNumber;
     private Address address;

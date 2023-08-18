@@ -13,7 +13,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class OrderOutDTO extends AbstractOutDTO {
+public class OrderOutDTO{
     private List<Collaborator> collaborators;
     private List<OtherProduct> otherProducts;
     private Customer customer;

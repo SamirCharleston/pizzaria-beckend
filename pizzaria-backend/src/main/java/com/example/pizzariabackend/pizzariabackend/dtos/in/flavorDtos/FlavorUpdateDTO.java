@@ -12,6 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 public class FlavorUpdateDTO {
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Size(max = 50, message = ErrorMessages.MAX_50)

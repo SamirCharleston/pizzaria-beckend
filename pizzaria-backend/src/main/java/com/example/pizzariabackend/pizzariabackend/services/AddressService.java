@@ -28,11 +28,11 @@ public class AddressService{
         return modelMapper.map(addressDatabase, AddressOutDTO.class);
     }
     public List<AddressOutDTO> findAll(){
-        List<Address> addresss = repository.findAll();
-        if(addresss.isEmpty())
+        List<Address> address = repository.findAll();
+        if(address.isEmpty())
             throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
         List<AddressOutDTO> addressOutDTOS = new ArrayList<>();
-        for(Address i : addresss){
+        for(Address i : address){
             addressOutDTOS.add(modelMapper.map(i, AddressOutDTO.class));
         }
         return addressOutDTOS;
@@ -43,7 +43,14 @@ public class AddressService{
         return SuccessMessages.SAVED;
     }
     public String update(AddressUpdateDTO request){
-        Address addressToDatabase = modelMapper.map(request, Address.class);
+        if(!repository.existsById(request.getId()))
+            throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+        Address addressToDatabase = repository.getById(request.getId());
+        //Put the variation below this line
+        addressToDatabase.setNeighborhood(request.getNeighborhood());
+        addressToDatabase.setNumber(request.getNumber());
+        addressToDatabase.setStreet(request.getStreet());
+        //Put the variation above this line
         repository.save(addressToDatabase);
         return SuccessMessages.UPDATED;
     }

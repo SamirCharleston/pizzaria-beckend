@@ -16,6 +16,8 @@ public abstract class ErrorMessages {
     public static final String POSITIVE = "This field must contain a positive value.";
     public static final String ENTITY_NOT_FOUND = "Can't found in the database.";
     public static final String ALREADY_DISABLED = "This element is already disabled.";
+    public static final String ORDER_DELIVERED = "This order has already been delivered and cannot be modified.";
+    public static final String ORDER_CANCELED = "This order was been canceled.";
 }
 
 

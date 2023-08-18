@@ -1,10 +1,13 @@
 package com.example.pizzariabackend.pizzariabackend.services;
 
+import com.example.pizzariabackend.pizzariabackend.config.customExceptions.OrderAlreadyDeliveredException;
+import com.example.pizzariabackend.pizzariabackend.config.customExceptions.OrderCanceledException;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.SuccessMessages;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.orderDtos.OrderInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.orderDtos.OrderUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.orderDtos.OrderOutDTO;
+import com.example.pizzariabackend.pizzariabackend.entities.Flavor;
 import com.example.pizzariabackend.pizzariabackend.entities.Order;
 import com.example.pizzariabackend.pizzariabackend.repositories.OrderRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -43,7 +46,23 @@ public class OrderService{
         return SuccessMessages.SAVED;
     }
     public String update(OrderUpdateDTO request){
-        Order orderToDatabase = modelMapper.map(request, Order.class);
+        if(!repository.existsById(request.getId()))
+            throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+        Order orderToDatabase = repository.getById(request.getId());
+        //Put the variation below this line
+        if(!orderToDatabase.isStatus())
+            throw new OrderCanceledException(ErrorMessages.ORDER_CANCELED);
+        if(orderToDatabase.isDelivered())
+            throw new OrderAlreadyDeliveredException(ErrorMessages.ORDER_DELIVERED);
+        if(request.getCollaborators() != null && !request.getCollaborators().isEmpty())
+            orderToDatabase.setCollaborators(request.getCollaborators());
+        if(request.getCustomer() != null)
+            orderToDatabase.setCustomer(request.getCustomer());
+        if(request.getOtherProducts() != null && !request.getOtherProducts().isEmpty())
+            orderToDatabase.setOtherProducts(request.getOtherProducts());
+        if(request.getPizzas() != null && !request.getPizzas().isEmpty())
+            orderToDatabase.setPizzas(request.getPizzas());
+        //Put the variation above this line
         repository.save(orderToDatabase);
         return SuccessMessages.UPDATED;
     }

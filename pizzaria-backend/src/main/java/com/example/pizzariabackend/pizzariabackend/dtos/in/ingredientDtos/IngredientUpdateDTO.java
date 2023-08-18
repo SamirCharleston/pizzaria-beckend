@@ -10,6 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class IngredientUpdateDTO {
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Size(max = 50, message = ErrorMessages.MAX_50)

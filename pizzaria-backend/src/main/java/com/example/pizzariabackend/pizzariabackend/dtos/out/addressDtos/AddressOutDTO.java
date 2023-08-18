@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class AddressOutDTO extends AbstractOutDTO {
+public class AddressOutDTO{
     private String street;
     private String number;
     private String neighborhood;

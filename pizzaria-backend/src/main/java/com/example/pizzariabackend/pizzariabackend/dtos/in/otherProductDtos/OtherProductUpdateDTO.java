@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class OtherProductUpdateDTO {
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
     @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)
     private String name;
     @NotNull(message = ErrorMessages.NOT_NULL)

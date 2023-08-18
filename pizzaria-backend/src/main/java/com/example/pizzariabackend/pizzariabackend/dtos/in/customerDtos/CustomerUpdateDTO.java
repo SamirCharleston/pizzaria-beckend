@@ -14,6 +14,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CustomerUpdateDTO {
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)

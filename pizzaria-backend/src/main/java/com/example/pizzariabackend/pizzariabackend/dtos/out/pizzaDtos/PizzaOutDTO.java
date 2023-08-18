@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class PizzaOutDTO extends AbstractOutDTO {
+public class PizzaOutDTO{
     private int quantity;
     private Size size;
     private List<Flavor> flavors;

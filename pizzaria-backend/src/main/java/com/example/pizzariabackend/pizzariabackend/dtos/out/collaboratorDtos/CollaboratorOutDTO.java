@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CollaboratorOutDTO extends AbstractOutDTO {
+public class CollaboratorOutDTO{
     private String name;
     private String cpf;
     private String function;

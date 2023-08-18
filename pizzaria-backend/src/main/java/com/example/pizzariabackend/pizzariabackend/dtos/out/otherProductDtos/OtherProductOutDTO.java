@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class OtherProductOutDTO extends AbstractOutDTO {
+public class OtherProductOutDTO{
     private String name;
     private BigDecimal price;
     private String kind;

@@ -5,6 +5,7 @@ import com.example.pizzariabackend.pizzariabackend.config.messageHandling.Succes
 import com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos.CustomerInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos.CustomerUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.customerDtos.CustomerOutDTO;
+import com.example.pizzariabackend.pizzariabackend.entities.Collaborator;
 import com.example.pizzariabackend.pizzariabackend.entities.Customer;
 import com.example.pizzariabackend.pizzariabackend.repositories.CustomerRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -43,7 +44,14 @@ public class CustomerService {
         return SuccessMessages.SAVED;
     }
     public String update(CustomerUpdateDTO request){
-        Customer customerToDatabase = modelMapper.map(request, Customer.class);
+        if(!repository.existsById(request.getId()))
+            throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+        Customer customerToDatabase = repository.getById(request.getId());
+        //Put the variation below this line
+        customerToDatabase.setAddress(request.getAddress());
+        customerToDatabase.setName(request.getName());
+        customerToDatabase.setTelephoneNumber(request.getTelephoneNumber());
+        //Put the variation above this line
         repository.save(customerToDatabase);
         return SuccessMessages.UPDATED;
     }

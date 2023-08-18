@@ -13,6 +13,8 @@ import lombok.Setter;
 import java.util.List;
 @Getter @Setter
 public class PizzaUpdateDTO {
+    @NotNull(message = ErrorMessages.NOT_NULL)
+    private Long id;
     @Positive(message = ErrorMessages.POSITIVE)
     private int quantity;
     @NotNull(message = ErrorMessages.NOT_NULL)

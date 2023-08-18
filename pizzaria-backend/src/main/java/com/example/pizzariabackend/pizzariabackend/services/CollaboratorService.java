@@ -5,6 +5,7 @@ import com.example.pizzariabackend.pizzariabackend.config.messageHandling.Succes
 import com.example.pizzariabackend.pizzariabackend.dtos.in.collaboratorDtos.CollaboratorInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.collaboratorDtos.CollaboratorUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.collaboratorDtos.CollaboratorOutDTO;
+import com.example.pizzariabackend.pizzariabackend.entities.Address;
 import com.example.pizzariabackend.pizzariabackend.entities.Collaborator;
 import com.example.pizzariabackend.pizzariabackend.repositories.CollaboratorRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -43,7 +44,14 @@ public class CollaboratorService {
         return SuccessMessages.SAVED;
     }
     public String update(CollaboratorUpdateDTO request){
-        Collaborator collaboratorToDatabase = modelMapper.map(request, Collaborator.class);
+        if(!repository.existsById(request.getId()))
+            throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+        Collaborator collaboratorToDatabase = repository.getById(request.getId());
+        //Put the variation below this line
+        collaboratorToDatabase.setCpf(request.getCpf());
+        collaboratorToDatabase.setName(request.getName());
+        collaboratorToDatabase.setFunction(request.getFunction());
+        //Put the variation above this line
         repository.save(collaboratorToDatabase);
         return SuccessMessages.UPDATED;
     }
