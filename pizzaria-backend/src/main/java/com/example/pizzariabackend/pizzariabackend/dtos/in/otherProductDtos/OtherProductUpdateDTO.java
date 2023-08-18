@@ -4,16 +4,19 @@ import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorM
 import com.example.pizzariabackend.pizzariabackend.config.validation.RegexValidation;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractUpdateDTO;
 import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
-
-public class OtherProductUpdateDTO extends AbstractUpdateDTO {
+@Getter
+@Setter
+public class OtherProductUpdateDTO {
     @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)
     private String name;
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Positive(message = ErrorMessages.POSITIVE)
     private BigDecimal price;
-    @Max(value = 20, message = ErrorMessages.MAX_20)
+    @Size(max = 20, message = ErrorMessages.MAX_20)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     private String kind;

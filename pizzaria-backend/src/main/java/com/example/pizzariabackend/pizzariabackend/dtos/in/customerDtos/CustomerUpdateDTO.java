@@ -8,8 +8,12 @@ import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import lombok.Getter;
+import lombok.Setter;
 
-public class CustomerUpdateDTO extends AbstractUpdateDTO {
+@Getter
+@Setter
+public class CustomerUpdateDTO {
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     @NotNull(message = ErrorMessages.NOT_NULL)
     @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)

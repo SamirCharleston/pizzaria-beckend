@@ -14,6 +14,8 @@ public abstract class ErrorMessages {
     public static final String NOT_NULL = "This field can't be null.";
     public static final String NOT_EMPTY = "This field needs at least one element.";
     public static final String POSITIVE = "This field must contain a positive value.";
+    public static final String ENTITY_NOT_FOUND = "Can't found in the database.";
+    public static final String ALREADY_DISABLED = "This element is already disabled.";
 }
 
 

@@ -4,49 +4,48 @@ import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractInDTO;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractOutDTO;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractUpdateDTO;
-import com.example.pizzariabackend.pizzariabackend.interfaces.simpleDTOConverter;
-import com.example.pizzariabackend.pizzariabackend.interfaces.MainRepository;
+import com.example.pizzariabackend.pizzariabackend.abstractClasses.interfaces.MainRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.MappedSuperclass;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Service
 @Transactional
-//@MappedSuperclass
+@MappedSuperclass
 public abstract class AbstractService <
         Repository extends MainRepository<ObjectEntity>,
         ObjectIdDTO extends AbstractIdDTO,
         ObjectInDTO extends AbstractInDTO,
         ObjectUpdateDTO extends AbstractUpdateDTO,
         ObjectOutDTO extends AbstractOutDTO,
-        ObjectEntity extends  AbstractEntity> implements simpleDTOConverter {
+        ObjectEntity extends  AbstractEntity>{
     @Autowired
     private Repository repository;
     @Autowired
     private ModelMapper modelMapper;
 
-    public ObjectOutDTO findById(ObjectIdDTO object) throws EntityNotFoundException {
-        ObjectEntity dataBaseEntity = repository.findById(object.getId()).orElseThrow(() -> {
-            throw new EntityNotFoundException("Can't found the id " + object.getId() + ".");
+    public AbstractOutDTO findById(Long id) throws EntityNotFoundException {
+        ObjectEntity dataBaseEntity = repository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Can't found the id " + id + ".");
         });
-        return this.convertToDTO(dataBaseEntity);
+        return null;
+//        return (ObjectOutDTO) convertToDTO(dataBaseEntity);
     }
     public List<ObjectOutDTO> findAll() throws EntityNotFoundException{
         List<ObjectEntity> objects = repository.findAll();
         if (objects == null || objects.isEmpty())
             throw new EntityNotFoundException("No objects found.");
-        return objects.stream()
-                .map(e -> (ObjectOutDTO) this.convertToDTO(e))
-                .collect(Collectors.toList());
+//        return objects.stream()
+//                .map(e -> (ObjectOutDTO) this.convertToDTO(e))
+//                .collect(Collectors.toList());
+        return null;
     }
     public String register(ObjectInDTO object) throws DataIntegrityViolationException {
-        repository.save(this.convertToEntity(object));
+//        repository.save(this.convertToEntity(object));
         return "Successfully registered.";
     }
     public String update(ObjectUpdateDTO object) throws DataIntegrityViolationException {
@@ -54,14 +53,14 @@ public abstract class AbstractService <
             throw new EntityNotFoundException("Can't found the id " + object.getId() + ".");
         });
         object.setId(dataBaseObject.getId());
-        repository.save(this.convertToEntity(object));
+//        repository.save(this.convertToEntity(object));
         return "Successfully updated.";
     }
-    public String delete(ObjectIdDTO object) throws EntityNotFoundException{
-        ObjectEntity dataBaseObject = repository.findById(object.getId()).orElseThrow(() -> {
-            throw new EntityNotFoundException("Can't found the id " + object.getId() + ".");
+    public String delete(Long id) throws EntityNotFoundException{
+        ObjectEntity dataBaseObject = repository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Can't found the id " + id + ".");
         });
-        repository.deleteById(object.getId());
+        repository.deleteById(id);
         return "Successfully deleted.";
     }
 }

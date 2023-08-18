@@ -6,10 +6,11 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.customerDtos.Customer
 import com.example.pizzariabackend.pizzariabackend.dtos.out.customerDtos.CustomerOutDTO;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractController;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.services.CustomerService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-public class CustomerController extends AbstractController<AbstractService,
-        CustomerIdDTO,
-        CustomerInDTO,
-        CustomerUpdateDTO,
-        CustomerOutDTO>{
+@Controller
+@RequestMapping(value = "/customer")
+public class CustomerController{
 }

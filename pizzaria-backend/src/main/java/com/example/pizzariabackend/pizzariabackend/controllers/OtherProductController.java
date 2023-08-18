@@ -6,10 +6,10 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.otherProductDtos.Othe
 import com.example.pizzariabackend.pizzariabackend.dtos.out.otherProductDtos.OtherProductOutDTO;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractController;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
-
-public class OtherProductController extends AbstractController<AbstractService,
-        OtherProductIdDTO,
-        OtherProductInDTO,
-        OtherProductUpdateDTO,
-        OtherProductOutDTO> {
+import com.example.pizzariabackend.pizzariabackend.services.OtherProductService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+@Controller
+@RequestMapping(value = "/other-product")
+public class OtherProductController{
 }

@@ -1,4 +1,4 @@
-package com.example.pizzariabackend.pizzariabackend.interfaces;
+package com.example.pizzariabackend.pizzariabackend.abstractClasses.interfaces;
 
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractEntity;
 import org.springframework.context.annotation.Primary;

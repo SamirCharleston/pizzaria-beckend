@@ -1,6 +1,9 @@
 package com.example.pizzariabackend.pizzariabackend.dtos.out.ingredientDtos;
 
-import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.AbstractOutDTO;
+import lombok.Getter;
+import lombok.Setter;
 
-public class IngredientOutDTO extends AbstractOutDTO {
+@Getter @Setter
+public class IngredientOutDTO {
+    private String name;
 }

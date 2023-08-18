@@ -6,12 +6,11 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.addressDtos.AddressUp
 import com.example.pizzariabackend.pizzariabackend.dtos.out.addressDtos.AddressOutDTO;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractController;
 import com.example.pizzariabackend.pizzariabackend.abstractClasses.AbstractService;
+import com.example.pizzariabackend.pizzariabackend.services.AddressService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-public class AddressController extends AbstractController<
-        AbstractService,
-        AddressIdDTO,
-        AddressInDTO,
-        AddressUpdateDTO,
-        AddressOutDTO
-        > {
+@Controller
+@RequestMapping(value = "/address")
+public class AddressController{
 }

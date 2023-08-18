@@ -7,9 +7,12 @@ import com.example.pizzariabackend.pizzariabackend.abstractClasses.abstractDtos.
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
-
+@Getter
+@Setter
 public class PizzaInDTO extends AbstractInDTO {
     @Positive(message = ErrorMessages.POSITIVE)
     private int quantity;
