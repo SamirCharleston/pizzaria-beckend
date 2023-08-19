@@ -10,10 +10,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.orderDtos.OrderInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.orderDtos.OrderUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.orderDtos.OrderOutDTO;
 import com.example.pizzariabackend.pizzariabackend.entities.*;
-import com.example.pizzariabackend.pizzariabackend.repositories.CollaboratorRepository;
-import com.example.pizzariabackend.pizzariabackend.repositories.CustomerRepository;
-import com.example.pizzariabackend.pizzariabackend.repositories.FlavorRepository;
-import com.example.pizzariabackend.pizzariabackend.repositories.OrderRepository;
+import com.example.pizzariabackend.pizzariabackend.repositories.*;
 import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +29,8 @@ public class OrderService{
     private CustomerRepository customerRepository;
     @Autowired
     private FlavorRepository flavorRepository;
+    @Autowired
+    private OtherProductRepository otherProductRepository;
     @Autowired
     private ModelMapper modelMapper;
     public OrderOutDTO findById(Long id){
@@ -112,16 +111,27 @@ public class OrderService{
             List<Flavor> flavors = new ArrayList<>();
             for(Flavor flavor : pizza.getFlavors()){
                 Flavor flavorTest = flavorRepository.findByName(flavor.getName());
-                if(flavorTest == null){
-                    throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+                if(flavorTest != null){
+                    flavors.add(flavorTest);
                 }
-                flavors.add(flavorTest);
+
             }
             pizza.setFlavors(flavors);
             pizzas.add(pizza);
 
         }
+        List<OtherProduct> otherProducts = new ArrayList<>();
+        for (OtherProduct otherProduct :orderDTO.getOtherProducts()){
+            OtherProduct otherProductName = otherProductRepository.findByName(otherProduct.getName());
+            if(otherProductName != null){
+                otherProducts.add(otherProductName);
+            }
+
+        }
+
+
         orderEntity.setPizzas(pizzas);
+        orderEntity.setOtherProducts(otherProducts);
         orderEntity.setCustomer(customer);
         orderEntity.setCollaborator(collaborator);
         orderEntity.setDelivery(orderDTO.isDelivery());
