@@ -1,5 +1,7 @@
 package com.example.pizzariabackend.pizzariabackend.services;
 
+import com.example.pizzariabackend.pizzariabackend.config.customExceptions.OrderAlreadyDeliveredException;
+import com.example.pizzariabackend.pizzariabackend.config.customExceptions.OrderCanceledException;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.SuccessMessages;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.pizzaDtos.PizzaInDTO;
@@ -9,6 +11,7 @@ import com.example.pizzariabackend.pizzariabackend.dtos.in.pizzaDtos.PizzaInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.pizzaDtos.PizzaUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.pizzaDtos.PizzaOutDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.pizzaDtos.PizzaOutDTO;
+import com.example.pizzariabackend.pizzariabackend.entities.Order;
 import com.example.pizzariabackend.pizzariabackend.entities.Pizza;
 import com.example.pizzariabackend.pizzariabackend.entities.Pizza;
 import com.example.pizzariabackend.pizzariabackend.repositories.PizzaRepository;
@@ -50,7 +53,17 @@ public class PizzaService{
         return SuccessMessages.SAVED;
     }
     public String update(PizzaUpdateDTO request){
-        Pizza pizzaToDatabase = modelMapper.map(request, Pizza.class);
+        if(!repository.existsById(request.getId()))
+            throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+        Pizza pizzaToDatabase = repository.getById(request.getId());
+        //Put the variation below this line
+        if(!request.getFlavors().isEmpty())
+            pizzaToDatabase.setFlavors(request.getFlavors());
+        if(!request.getSize().toString().equals(pizzaToDatabase.getSize().toString()))
+            pizzaToDatabase.setSize(request.getSize());
+        if(request.getQuantity() != pizzaToDatabase.getQuantity())
+            pizzaToDatabase.setQuantity(request.getQuantity());
+        //Put the variation above this line
         repository.save(pizzaToDatabase);
         return SuccessMessages.UPDATED;
     }

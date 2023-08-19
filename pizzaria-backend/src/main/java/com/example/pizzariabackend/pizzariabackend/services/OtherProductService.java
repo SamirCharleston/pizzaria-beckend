@@ -1,10 +1,13 @@
 package com.example.pizzariabackend.pizzariabackend.services;
 
+import com.example.pizzariabackend.pizzariabackend.config.customExceptions.OrderAlreadyDeliveredException;
+import com.example.pizzariabackend.pizzariabackend.config.customExceptions.OrderCanceledException;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.ErrorMessages;
 import com.example.pizzariabackend.pizzariabackend.config.messageHandling.SuccessMessages;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.otherProductDtos.OtherProductInDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.in.otherProductDtos.OtherProductUpdateDTO;
 import com.example.pizzariabackend.pizzariabackend.dtos.out.otherProductDtos.OtherProductOutDTO;
+import com.example.pizzariabackend.pizzariabackend.entities.Order;
 import com.example.pizzariabackend.pizzariabackend.entities.OtherProduct;
 import com.example.pizzariabackend.pizzariabackend.repositories.OtherProductRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -43,7 +46,17 @@ public class OtherProductService {
         return SuccessMessages.SAVED;
     }
     public String update(OtherProductUpdateDTO request){
-        OtherProduct otherProductToDatabase = modelMapper.map(request, OtherProduct.class);
+        if(!repository.existsById(request.getId()))
+            throw new EntityNotFoundException(ErrorMessages.ENTITY_NOT_FOUND);
+        OtherProduct otherProductToDatabase = repository.getById(request.getId());
+        //Put the variation below this line
+        if(!otherProductToDatabase.getKind().isEmpty())
+            otherProductToDatabase.setKind(request.getKind());
+        if(!otherProductToDatabase.getName().isEmpty())
+            otherProductToDatabase.setName(request.getName());
+        if(otherProductToDatabase.getPrice() != null)
+            otherProductToDatabase.setPrice(request.getPrice());
+        //Put the variation above this line
         repository.save(otherProductToDatabase);
         return SuccessMessages.UPDATED;
     }
