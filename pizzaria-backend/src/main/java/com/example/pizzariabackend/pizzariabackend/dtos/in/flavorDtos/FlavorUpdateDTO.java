@@ -15,11 +15,8 @@ public class FlavorUpdateDTO {
     @NotNull(message = ErrorMessages.NOT_NULL)
     private Long id;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
-    @NotNull(message = ErrorMessages.NOT_NULL)
     @Size(max = 50, message = ErrorMessages.MAX_50)
     @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)
     private String name;
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @NotEmpty(message = ErrorMessages.NOT_EMPTY)
     private List<Ingredient> ingredients;
 }

@@ -18,6 +18,7 @@ public abstract class ErrorMessages {
     public static final String ALREADY_DISABLED = "This element is already disabled.";
     public static final String ORDER_DELIVERED = "This order has already been delivered and cannot be modified.";
     public static final String ORDER_CANCELED = "This order was been canceled.";
+    public static final String PIZZA_SIZE = "The quantity of flavors is not compatible with the size.";
 }
 
 

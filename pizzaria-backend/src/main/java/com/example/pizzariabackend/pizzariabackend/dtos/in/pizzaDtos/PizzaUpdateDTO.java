@@ -17,10 +17,7 @@ public class PizzaUpdateDTO {
     private Long id;
     @Positive(message = ErrorMessages.POSITIVE)
     private int quantity;
-    @NotNull(message = ErrorMessages.NOT_NULL)
     @Enumerated(EnumType.STRING)
     private Size size;
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    @NotEmpty(message = ErrorMessages.NOT_EMPTY)
     private List<Flavor> flavors;
 }

@@ -17,14 +17,11 @@ public class CustomerUpdateDTO {
     @NotNull(message = ErrorMessages.NOT_NULL)
     private Long id;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
-    @NotNull(message = ErrorMessages.NOT_NULL)
     @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)
     private String name;
     @NotBlank(message = ErrorMessages.NOT_BLANK)
-    @NotNull(message = ErrorMessages.NOT_NULL)
     @Pattern(regexp = RegexValidation.TELEPHONE, message = ErrorMessages.TELEPHONE)
     private String telephoneNumber;
     @OneToOne
-    @NotNull(message = ErrorMessages.NOT_NULL)
     private Address address;
 }

@@ -15,11 +15,9 @@ public class OtherProductUpdateDTO {
     private Long id;
     @Pattern(regexp = RegexValidation.NAME, message = ErrorMessages.NAME)
     private String name;
-    @NotNull(message = ErrorMessages.NOT_NULL)
     @Positive(message = ErrorMessages.POSITIVE)
     private BigDecimal price;
     @Size(max = 20, message = ErrorMessages.MAX_20)
-    @NotNull(message = ErrorMessages.NOT_NULL)
     @NotBlank(message = ErrorMessages.NOT_BLANK)
     private String kind;
 }

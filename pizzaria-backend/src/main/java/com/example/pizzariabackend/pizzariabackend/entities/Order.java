@@ -17,7 +17,7 @@ import java.util.List;
 public class Order extends AbstractEntity {
     @ManyToMany
     @JoinTable
-    private List<Collaborator> collaborators;
+    private Collaborator collaborator;
     @OneToMany
     private List<OtherProduct> otherProducts;
     @ManyToOne
@@ -26,5 +26,5 @@ public class Order extends AbstractEntity {
     @ManyToMany
     @JoinTable
     private List<Pizza> pizzas;
-    private boolean delivered;
+    private boolean delivery;
 }

@@ -16,12 +16,9 @@ import java.util.List;
 public class OrderUpdateDTO {
     @NotNull(message = ErrorMessages.NOT_NULL)
     private Long id;
-    @NotNull(message = ErrorMessages.NOT_NULL)
-    private List<Collaborator> collaborators;
+    private Collaborator collaborator;
     private List<OtherProduct> otherProducts;
-    @NotNull(message = ErrorMessages.NOT_NULL)
     private Customer customer;
-    @NotNull(message = ErrorMessages.NOT_NULL)
     private List<Pizza> pizzas;
     private boolean delivered;
 }
